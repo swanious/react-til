@@ -3,11 +3,11 @@ import logo from "./logo.svg";
 import "./App.css";
 import Comment from "./Comment";
 
-const commentFromServer = [
-  { name: "suwan Oh", content: "My first content!" },
-  { name: "suwan Hoo", content: "My first content!" },
-  { name: "suwan Lee", content: "My first content!" },
-];
+// const commentFromServer = [
+//   { id: 1, name: "suwan Oh", content: "My first content!" },
+//   { id: 2, name: "suwan Hoo", content: "My first content!" },
+//   { id: 3, name: "suwan Lee", content: "My first content!" },
+// ];
 
 let timer;
 
@@ -18,7 +18,11 @@ class App extends React.Component {
     super(props);
 
     this.state = {
-      comments: [],
+      comments: [
+        { id: 1, name: "suwan Oh", content: "My first content!" },
+        { id: 2, name: "suwan Hoo", content: "My first content!" },
+        { id: 3, name: "suwan Lee", content: "My first content!" },
+      ],
     };
   }
 
@@ -27,9 +31,9 @@ class App extends React.Component {
   componentDidMount() {
     let comments = this.state.comments;
     timer = setInterval(() => {
-      if (comments.length < commentFromServer.length) {
-        let index = comments.length;
-        comments.push(commentFromServer[index]);
+      if (comments.length > 0) {
+        // let index = comments.length;
+        comments.pop();
         // 여기서 this.setState()를 사용하지 않으면 아무일도 발생하지 않는다.
         // 이유는 state는 무조건 this.setState()를 통해서만 동작하기 때문(임의로 state에 조작을 가하면 안된다.)
         // setState()를 사용하면 react는 그때에만 재 랜더링을 한다.
@@ -61,7 +65,8 @@ class App extends React.Component {
           {comments.map((comment, index) => {
             return (
               <Comment
-                key={index} // props로 데이터를 넘겨줄 때, key를 넘겨주지 않으면 console 에러가 발생한다.
+                key={comment.id} // props로 데이터를 넘겨줄 때, key를 넘겨주지 않으면 console 에러가 발생한다.
+                id={comment.id} // props로 데이터를 넘겨줄 때, key를 넘겨주지 않으면 console 에러가 발생한다.
                 name={comment.name}
                 content={comment.content}
               />

@@ -37,10 +37,22 @@ const styles = {
 };
 
 class Comment extends React.Component {
+  // constructor(props) {
+  //   super(props);
+  // }
+  // lifecycle을 알아보자.
+  componentDidMount() {
+    console.log(`${this.props.id} componentDidMount() called`);
+  }
+  componentDidUpdate() {
+    console.log(`${this.props.id} componentDidUpdating() called`);
+  }
+  componentWillUnmount() {
+    console.log(`${this.props.id} componentWillUnmounting() called`);
+  }
   render() {
     // 리팩토링: 아래에서 {this.props.name}, {this.props.content}로 사용하지 않고,여기서 분배해준다.
     const { name, content } = this.props;
-
     return (
       <div style={styles.root}>
         <div style={styles.imageContainer}>
