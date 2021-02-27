@@ -1,0 +1,25 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@import url('https://fonts.googleapis.com/css2?family=DotGothic16&family=Noto+Sans+KR:wght@500&family=Roboto:wght@500&family=Stick&display=swap');
+
+.background-image{
+  background-image: url('../images/01.jpg');
+}
+
+.roboto {
+  font-family: 'Roboto', sans-serif;
+}
+
+.dot-gothic {
+  font-family: 'DotGothic16', sans-serif;
+}
+
+.stick {
+  font-family: 'Stick', sans-serif;
+}
+
+.noto-sans {
+  font-family: 'Noto Sans KR', sans-serif;
+}
