@@ -39,18 +39,20 @@ function Users() {
       <ul>
         {users.map((user) => (
           <li key={user.id}>
-            <span>
-              <table className="border-b-2">
+            <table className="border-gray-700">
+              <thead>
                 <tr>
-                  <th className="w-28 border-r-2">유저 이름</th>
-                  <td>{user.username}</td>
+                  <th>유저 이름</th>
+                  <th>이메일</th>
                 </tr>
+              </thead>
+              <tbody>
                 <tr>
-                  <th className="w-28  border-r-2">이메일</th>
+                  <td>{user.username}</td>
                   <td>{user.email}</td>
                 </tr>
-              </table>
-            </span>
+              </tbody>
+            </table>
           </li>
         ))}
       </ul>
